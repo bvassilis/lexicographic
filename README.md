@@ -8,7 +8,7 @@ $mvn clean install assembly:assembly
 Run App
 ---------
 $cd {project}/target <br/>
-$java -jar {project}.jar inputFile1 inputFile2 outputFile
+$java -jar {project}-with-dependencies.jar inputFile1 inputFile2 outputFile
 
 
 1. What do you expect to be the maximum size of the input files that your project can handle ? 
