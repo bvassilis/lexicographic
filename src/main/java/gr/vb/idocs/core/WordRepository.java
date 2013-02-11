@@ -4,18 +4,18 @@ import java.util.List;
 
 public interface WordRepository {
 
-    public void save(String name);
+    void save(String name);
     
-    public void update(String name);
+    void update(String name);
 
-    public void delete(String name);
+    void delete(String name);
     
-    public List<Word> listAll();
+    List<Word> listAll();
     
-    public int count();
+    int count();
     
-    public Word findByName(String name);
+    Word findByName(String name);
 
-    public List<Word> getWordsInFilesOrderByName();
+    List<Word> getWordsInFilesOrderByName();
 
 }

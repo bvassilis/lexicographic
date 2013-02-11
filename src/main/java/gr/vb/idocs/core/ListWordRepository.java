@@ -16,7 +16,7 @@ import com.google.common.collect.Lists;
 
 public class ListWordRepository implements WordRepository {
 
-    private static final Log log = LogFactory.getLog(ListWordRepository.class);
+    private static final Log LOGGER = LogFactory.getLog(ListWordRepository.class);
 
     private List<Word> words = Lists.newArrayList();
     
@@ -33,7 +33,7 @@ public class ListWordRepository implements WordRepository {
     public void update(String name) {
         Word word = new Word(name);
         if (!words.contains(word)) {
-            log.info("Could not be updated " + name);
+            LOGGER.info("Could not be updated " + name);
             return;
         }
         word = findByName(name);

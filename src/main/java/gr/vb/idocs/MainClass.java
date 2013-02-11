@@ -12,16 +12,20 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
-public class MainClass {
+public final class MainClass {
 
-    private static final Log log = LogFactory.getLog(MainClass.class);
+    private static final Log LOGGER = LogFactory.getLog(MainClass.class);
+    
+    private MainClass() {
+        throw new AssertionError("Instantiating main class...");
+    }
 
     public static void main(String[] args) throws IOException {
 
         if (args.length < 3) {
-            System.out.println("You must call the program as follow:");
-            System.out.println("java MainClass arg0 arg1 arg2");
-            System.exit(-1);
+            LOGGER.error("You must call the program as follow:");
+            LOGGER.error("java MainClass arg0 arg1 arg2");
+            return;
         }
         
         File file0 = new File(args[0]);
@@ -30,12 +34,12 @@ public class MainClass {
         
         boolean inputFilesExists = file0.exists() && file1.exists();
         if (!inputFilesExists) {
-            System.out.println("Files do not exist");
-            System.exit(-1);
+            LOGGER.error("Files do not exist");
+            return;
         }
 
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        log.info("Lexicographically Application Running");
+        LOGGER.info("Lexicographically Application Running");
         WordRepository repository = context.getBean(WordRepository.class);
         context.registerShutdownHook();
 
