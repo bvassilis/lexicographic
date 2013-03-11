@@ -1,0 +1,3 @@
+The input will be 3 arguments which are all paths to plain text files.
+The first 2 paths point to input files having one word per line.
+The program should write to the 3rd file only the words that are common in the two input files, lexicographically ordered.
